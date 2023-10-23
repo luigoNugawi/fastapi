@@ -1,3 +1,4 @@
+import platform
 from fastapi import __version__ as fastapi_version
 from fastapi import FastAPI
 
@@ -15,3 +16,9 @@ async def read_item(item_id: int):
 async def version():
     """Retrieve version information"""
     return {'version': fastapi_version}
+
+@app.get('/pythonversion')
+async def version():
+    pv = platform.python_version()
+    """Retrieve version information"""
+    return {'version': pv }
